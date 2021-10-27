@@ -1,0 +1,30 @@
+.root {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 20px;
+}
+
+.note-text {
+  max-width: 300px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.actions :not(:first-child) {
+  margin-left: 15px;
+}
+
+.tags {
+  max-width: 35%;
+  flex-shrink: 2;
+  margin-left: 40px;
+}
+
+.tags :not(:first-child) {
+  margin-top: 10px;
+}
