@@ -27,7 +27,7 @@ export const NoteRow = ({ actions, textHref, text, tags, onClick }: NoteRowProps
                       key={id}
                       name={tag}
                       closable={false}
-                      onClick={() => noteModel.setTagToFilter(tag)}
+                      onClick={() => noteModel.toggleTagToFilter(tag)}
                     />
                 )) }
             </div>            
