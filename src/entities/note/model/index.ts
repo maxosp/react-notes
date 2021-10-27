@@ -52,21 +52,18 @@ export const deleteNoteFx = createEffect({
 // Stores, events
 
 export const setQueryConfig = createEvent<string>()
-export const setTagToFilter = createEvent<string>()
+export const toggleTagToFilter = createEvent<string>()
 export const deleteTagFromFilter = createEvent<string>()
 
 export const $queryConfig = createStore<QueryConfig>({ text: '', tags: [] })
   .on(setQueryConfig, (state, payload) => ({ ...state, text: payload }))
-  .on(setTagToFilter, (state, tag) => {
+  .on(toggleTagToFilter, (state, tag) => {
     let tagsFilter = state.tags
-    if (!tagsFilter) {
-      tagsFilter = [tag]
-    } else if (tagsFilter.indexOf(tag) === -1) {
-      tagsFilter.push(tag)
-    }
+    const tags = state.tags.includes(tag) ? state.tags.filter(t => t !== tag) : [...state.tags, tag]
+
     return {
       ...state,
-      tags: tagsFilter,
+      tags
     }
   })
   .on(deleteTagFromFilter, (state, tag) => {

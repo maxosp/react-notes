@@ -12,9 +12,11 @@ import { useStore } from "effector-react"
 import styles from "./styles.module.scss"
 
 const NotesListPage = () => {
+  const tags = useStore(noteModel.$tagsFilterConfig)
+
   useEffect(() => {
     noteModel.getNotes()
-  })
+  }, [])
 
   return (
     <Layout className={styles.root}>
@@ -31,7 +33,7 @@ const NotesListPage = () => {
           <Space direction="vertical">
             <NotesFilters />
             <TagsFilter
-              tags={useStore(noteModel.$tagsFilterConfig)}
+              tags={tags}
               onClose={(tag: string) => {
                 noteModel.deleteTagFromFilter(tag)
               }}
