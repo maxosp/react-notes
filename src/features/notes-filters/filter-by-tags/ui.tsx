@@ -4,19 +4,19 @@ import styles from './styles.module.scss'
 
 export type TagsFilterProps = PropsWithChildren<{
   tags: string[]
-  onClose?: any
+  onClick?: any
 }>
 
-export const TagsFilter = ({ tags, onClose }: TagsFilterProps) => {
+export const TagsFilter = ({ tags, onClick }: TagsFilterProps) => {
   return (
     <div className={styles.tags}>
       {
-        tags ? tags.map((tag, id) => (
+        tags.length ? tags.map((tag, id) => (
           <TagElement
             key={id}
             name={tag}
-            closable={true}
-            onClose={onClose}
+            closable={false}
+            onClick={() => onClick(tag)}
           />
         )) : `Select tags to filter`
       }

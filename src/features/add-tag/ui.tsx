@@ -5,16 +5,14 @@ import styles from './styles.module.scss'
 export type TagElementProps = PropsWithChildren<{
   name: string
   closable: boolean
-  onClose?: MouseEventHandler
   onClick?: MouseEventHandler
 }>
 
-export const TagElement = ({ name, closable, onClose, onClick }: TagElementProps) => {
+export const TagElement = ({ name, closable, onClick }: TagElementProps) => {
   return (
     <Tag
       className={styles['ant-tag']}
       closable={closable}
-      onClose={onClose}
       onClick={onClick}
     >
       { name }

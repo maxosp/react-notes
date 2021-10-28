@@ -43,7 +43,7 @@ const TagsList = list({
   mapItem: {
     name: (tag) => tag,
     closable: () => true,
-    onClose: (tag) => () => noteModel.deleteTag(tag),
+    onClick: (tag) => () => noteModel.toggleTagToFilter(tag),
   },
   getKey: (tag) => tag,
 })

@@ -14,6 +14,10 @@ import styles from "./styles.module.scss"
 const NotesListPage = () => {
   const tags = useStore(noteModel.$tagsFilterConfig)
 
+  const handleDeleteTag = (tag: string) => {
+    noteModel.toggleTagToFilter(tag)
+  }
+
   useEffect(() => {
     noteModel.getNotes()
   }, [])
@@ -34,9 +38,7 @@ const NotesListPage = () => {
             <NotesFilters />
             <TagsFilter
               tags={tags}
-              onClose={(tag: string) => {
-                noteModel.deleteTagFromFilter(tag)
-              }}
+              onClick={handleDeleteTag}
             />
           </Space>
         </Row>
