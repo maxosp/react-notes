@@ -1,4 +1,4 @@
-const DELAY = 500
+import { DELAY } from "./constants"
 
 export const getUsername = (): Promise<string> => {
   const name = localStorage.getItem('currentUser')
